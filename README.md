@@ -2,10 +2,10 @@
 
 Add a tab to show table comments in SQL Developer
 
-# Author 
+## Author 
 
 Trent Schafer
 
-# License
+## License
 
 The Unlicense
