@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Display: objectType can be anything as described at:
+    http://www.oracle.com/webfolder/technetwork/sqldeveloper/3_1/dialogs/http___xmlns.oracle.com_sqldeveloper_3_1_dialogs/index.html#object_types
+
+    Query: Standard binds available are OBJECT_OWNER, OBJECT_TYPE and
+    OBJECT_NAME.
+-->
+<displays>
+    <display
+        type="editor"
+        style="comment"
+        enable="true"
+        connType="Oracle"
+        objectType="TABLE,VIEW,MATERIALIZED_VIEW">
+        <name><![CDATA[Comments]]></name>
+        <description><![CDATA[Add a tab to show comments for tables, views and materialized views]]></description>
+        <tooltip><![CDATA[Add a tab to show comments for tables, views and materialized views]]></tooltip>
+        <drillclass><![CDATA[null]]></drillclass>
+        <query id="TableComments">
+            <sql>
+                <![CDATA[
+                select comments
+                from all_tab_comments
+                where owner = :OBJECT_OWNER
+                and table_name = :OBJECT_NAME
+                ]]>
+            </sql>
+        </query>
+    </display>
+</displays>
+
